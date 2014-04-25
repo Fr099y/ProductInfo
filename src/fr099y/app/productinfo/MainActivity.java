@@ -1,9 +1,15 @@
 package fr099y.app.productinfo;
 
+import java.io.IOException;
+
+import net.sqlcipher.database.SQLiteDatabase;
+
 import com.google.zxing.Result;
 import com.google.zxing.client.android.CaptureActivity;
 import com.google.zxing.client.result.ParsedResult;
 import com.google.zxing.client.result.ResultParser;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,6 +21,7 @@ public class MainActivity extends CaptureActivity {
 	{
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_main);
+		new CopyDatabase().execute();
 	}
 	
 	 @Override
@@ -26,5 +33,24 @@ public class MainActivity extends CaptureActivity {
 		 productInfo.putExtra(getString(R.string.intent_data_content), rawResult.toString());
 		 productInfo.putExtra(getString(R.string.intent_data_format), format);
 		 startActivity(productInfo);
+	 }
+	 
+	 public class CopyDatabase extends AsyncTask<Object, Object, Boolean>
+	 {
+
+		@Override
+		protected Boolean doInBackground(Object... params) {
+			// TODO Auto-generated method stub
+			DBAdapter db=new DBAdapter(MainActivity.this);
+			SQLiteDatabase.loadLibs(MainActivity.this);
+			try {
+				db.createDataBase();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
 	 }
 }

@@ -44,13 +44,21 @@ public final class R {
         public static final int activity_vertical_margin=0x7f0a0001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int launcher_icon=0x7f020001;
-        public static final int share_via_barcode=0x7f020002;
-        public static final int shopper_icon=0x7f020003;
+        public static final int frame_gray=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int launcher_icon=0x7f020002;
+        public static final int na=0x7f020003;
+        public static final int share_via_barcode=0x7f020004;
+        public static final int shopper_icon=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f08002e;
+        public static final int TextView02=0x7f080028;
+        public static final int TextView04=0x7f08002a;
+        public static final int TextView05=0x7f08002c;
+        public static final int TextView07=0x7f08002e;
+        public static final int TextView10=0x7f080030;
+        public static final int TextView11=0x7f080032;
+        public static final int action_settings=0x7f08003e;
         /**  Messages IDs 
          */
         public static final int auto_focus=0x7f080000;
@@ -74,26 +82,36 @@ public final class R {
         public static final int launch_product_query=0x7f080004;
         public static final int meta_text_view=0x7f080017;
         public static final int meta_text_view_label=0x7f080016;
-        public static final int page_number_view=0x7f080027;
+        public static final int page_number_view=0x7f080037;
         public static final int preview_view=0x7f08000c;
-        public static final int query_button=0x7f080025;
-        public static final int query_text_view=0x7f080024;
+        public static final int product_info_barcode=0x7f080029;
+        public static final int product_info_country=0x7f08002b;
+        public static final int product_info_image=0x7f080025;
+        public static final int product_info_importer=0x7f08002d;
+        public static final int product_info_ingredient=0x7f08002f;
+        public static final int product_info_manufactured=0x7f080031;
+        public static final int product_info_name=0x7f080027;
+        public static final int product_info_validate=0x7f080033;
+        public static final int query_button=0x7f080035;
+        public static final int query_text_view=0x7f080034;
         public static final int quit=0x7f080005;
         public static final int restart_preview=0x7f080006;
         public static final int result_button_view=0x7f08001a;
-        public static final int result_list_view=0x7f080026;
+        public static final int result_list_view=0x7f080036;
         public static final int result_view=0x7f08000e;
         public static final int return_scan_result=0x7f080007;
+        public static final int scrollView1=0x7f080024;
         public static final int search_book_contents_failed=0x7f080008;
         public static final int search_book_contents_succeeded=0x7f080009;
-        public static final int share_app_button=0x7f080029;
-        public static final int share_bookmark_button=0x7f08002a;
-        public static final int share_clipboard_button=0x7f08002c;
-        public static final int share_contact_button=0x7f08002b;
-        public static final int share_text_view=0x7f08002d;
+        public static final int share_app_button=0x7f080039;
+        public static final int share_bookmark_button=0x7f08003a;
+        public static final int share_clipboard_button=0x7f08003c;
+        public static final int share_contact_button=0x7f08003b;
+        public static final int share_text_view=0x7f08003d;
         public static final int shopper_button=0x7f08001b;
-        public static final int snippet_view=0x7f080028;
+        public static final int snippet_view=0x7f080038;
         public static final int status_view=0x7f08001c;
+        public static final int textView1=0x7f080026;
         public static final int time_text_view=0x7f080015;
         public static final int time_text_view_label=0x7f080014;
         public static final int type_text_view=0x7f080013;
