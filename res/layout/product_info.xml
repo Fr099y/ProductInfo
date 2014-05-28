@@ -4,6 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
@@ -17,7 +22,7 @@
             <ImageView
                 android:id="@+id/product_info_image"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:src="@drawable/na" />
 
             <LinearLayout

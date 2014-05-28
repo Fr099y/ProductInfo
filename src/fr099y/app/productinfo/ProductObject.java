@@ -9,7 +9,8 @@ public class ProductObject {
 	String ingredients;
 	String manufactured;
 	String validation;
-	public ProductObject(String name, String barcode, String country, String importer, String ingredients, String manufactured, String validation)
+	String image;
+	public ProductObject(String name, String barcode, String country, String importer, String ingredients, String manufactured, String validation, String image)
 	{
 		this.name=name;
 		this.barcode=barcode;
@@ -18,8 +19,16 @@ public class ProductObject {
 		this.ingredients=ingredients;
 		this.manufactured=manufactured;
 		this.validation=validation;
+		this.image=image;
 	}
-	
+	public void setImage(String image)
+	{
+		this.image=image;
+	}
+	public String getImage()
+	{
+		return this.image;
+	}
 	public void setName(String name)
 	{
 		this.name=name;

@@ -9,8 +9,11 @@ import com.google.zxing.client.android.CaptureActivity;
 import com.google.zxing.client.result.ParsedResult;
 import com.google.zxing.client.result.ResultParser;
 
+import fr099y.lib.tools.DataLoader;
+import fr099y.lib.tools.DataLoaderListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.content.Intent;
 import android.graphics.Bitmap;
 
@@ -22,8 +25,23 @@ public class MainActivity extends CaptureActivity {
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_main);
 		new CopyDatabase().execute();
+		loadTempData();
 	}
-	
+	private void loadTempData()
+	{
+		String url=getString(R.string.main_json_url)+"index.php";
+		new DataLoader(this, new DataLoaderListener() {
+			
+			@Override
+			public void onPostExecuted(String data) {
+				// TODO Auto-generated method stub
+				 Intent productInfo=new Intent(MainActivity.this, ProductInfoActivity.class);
+				 productInfo.putExtra(getString(R.string.intent_data_content), "8888240000309");
+				 productInfo.putExtra(getString(R.string.intent_data_format), "");
+				 startActivity(productInfo);
+			}
+		}, false).execute(url);
+	}
 	 @Override
 	 public void handleDecode(Result rawResult, Bitmap barcode) 
 	 {

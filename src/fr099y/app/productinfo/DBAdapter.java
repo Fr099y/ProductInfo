@@ -27,6 +27,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	private final String ROW_INGREDIENTS="ingredients";
 	private final String ROW_MANUFACTURED="manufactured";
 	private final String ROW_VALIDATION="validation";
+	private final String ROW_IMAGE="image";
 	private final String PASSWORD;
 	
 	private final Context context;
@@ -104,6 +105,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		values.put(ROW_INGREDIENTS, object.getIngredients());
 		values.put(ROW_MANUFACTURED, object.getManufactured());
 		values.put(ROW_VALIDATION, object.getValidation());
+		values.put(ROW_IMAGE, object.getImage());
 		try {
 			db.insert(TABLE_NAME, null, values);
 			return true;
@@ -119,13 +121,13 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public ProductObject getProduct(String barcode)
 	{
 		SQLiteDatabase db=this.getWritableDatabase(PASSWORD);
-		Cursor cursor=db.query(TABLE_NAME, new String[] {ROW_NAME, ROW_BARCODE, ROW_COUNTRY, ROW_IMPORTER, ROW_INGREDIENTS, ROW_MANUFACTURED, ROW_VALIDATION}, null, null, null, null, null);
+		Cursor cursor=db.query(TABLE_NAME, new String[] {ROW_NAME, ROW_BARCODE, ROW_COUNTRY, ROW_IMPORTER, ROW_INGREDIENTS, ROW_MANUFACTURED, ROW_VALIDATION, ROW_IMAGE}, null, null, null, null, null);
 		if(cursor.moveToFirst())
 		{
 			do {
 				if(barcode.equals(cursor.getString(1)))
 				{
-					ProductObject product=new ProductObject(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
+					ProductObject product=new ProductObject(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
 					return product;
 				}
 			} while (cursor.moveToNext());

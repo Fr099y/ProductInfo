@@ -1,8 +1,11 @@
 package fr099y.app.productinfo;
 
+import fr099y.lib.tools.ImageLoader;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ProductInfoActivity extends Activity{
@@ -13,14 +16,18 @@ public class ProductInfoActivity extends Activity{
 	private DBAdapter db;
 	private ProductObject product=null;
 	private TextView name, barcode, country, importer, ingredients, manufactured, validation;
+	private ImageLoader imgLoader;
+	private ImageView image;
+	private InitHeader header=new InitHeader();
 	@Override
 	public void onCreate(Bundle bundle)
 	{
 		super.onCreate(bundle);
 		setContentView(R.layout.product_info);
 		getIntentData();
-		initMyView();
 		db=new DBAdapter(this);
+		imgLoader=new ImageLoader(this, R.drawable.na);
+		initMyView();
 		if(checkProduct())
 		{
 			name.setText(product.getName());
@@ -30,15 +37,16 @@ public class ProductInfoActivity extends Activity{
 			ingredients.setText(product.getIngredients());
 			manufactured.setText(product.getManufactured());
 			validation.setText(product.getValidation());
+			imgLoader.DisplayImage(product.getImage(), image);			
+			header.initHeader(this, product.getName(), product.getBarcode(), true);
 		}
 		else
 		{
-			Log.d("TEST", "false");
+			finish();
+			Intent addProductIntent=new Intent(this, AddProductActivity.class);
+			addProductIntent.putExtra(getString(R.string.intent_data_barcode), content);
+			startActivity(addProductIntent);
 		}
-		
-		
-		Log.d(TAG_, "content="+content);
-		Log.d(TAG_, "format="+format);
 	}
 	private boolean checkProduct()
 	{
@@ -54,6 +62,7 @@ public class ProductInfoActivity extends Activity{
 	}
 	private void initMyView()
 	{
+		image=(ImageView)findViewById(R.id.product_info_image);
 		name=(TextView)findViewById(R.id.product_info_name);
 		barcode=(TextView)findViewById(R.id.product_info_barcode);
 		country=(TextView)findViewById(R.id.product_info_country);

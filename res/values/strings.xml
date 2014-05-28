@@ -7,5 +7,10 @@
     <string name="database_password">mypassword</string>
     <string name="intent_data_content">content</string>
     <string name="intent_data_format">format</string>
+    <string name="price_row_price">&lt;strong&gt;Үнэ:&lt;/strong&gt; %s₮</string>
+    <string name="price_row_shop">&lt;strong&gt;Дэлгүүр:&lt;/strong&gt; %s</string>
+    <string name="intent_data_shop_name">shopName</string>
+    <string name="intent_data_barcode">barcode</string>
+    <string name="main_json_url">http://192.168.100.107/productinfo/</string>
 
 </resources>
